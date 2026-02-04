@@ -82,63 +82,11 @@
                 document.head.insertBefore(baseStyle, document.head.firstChild);
                 document.documentElement.classList.add('edge-browser');
             }
-            
-            // بررسی لود شدن Tailwind
-            var tailwindLoaded = false;
-            var checkCount = 0;
-            var maxChecks = 50; // 5 ثانیه
-            
-            var checkTailwind = setInterval(function() {
-                checkCount++;
-                
-                // بررسی وجود Tailwind
-                if (window.tailwind || (document.querySelector('style[data-tailwind]') !== null)) {
-                    tailwindLoaded = true;
-                    clearInterval(checkTailwind);
-                    return;
-                }
-                
-                // اگر Tailwind لود نشد و Edge است، فوراً fallback را فعال کن
-                if ((isEdge || isIE) && checkCount >= 10) {
-                    clearInterval(checkTailwind);
-                    document.documentElement.classList.add('tailwind-fallback');
-                    console.warn('Tailwind CDN not loaded, using fallback styles for Edge');
-                }
-                
-                // توقف بعد از maxChecks
-                if (checkCount >= maxChecks) {
-                    clearInterval(checkTailwind);
-                    if (!tailwindLoaded) {
-                        document.documentElement.classList.add('tailwind-fallback');
-                        // فقط در development لاگ کن
-                        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                            console.warn('Tailwind CDN timeout, using fallback styles');
-                        }
-                    }
-                }
-            }, 100);
         })();
     </script>
     
     <style>
         /* Browser Compatibility Fixes - اصلاحات سازگاری با مرورگرها */
-        /* پشتیبانی از CSS Variables در Edge قدیمی */
-        @supports not (--css: variables) {
-            /* Fallback برای مرورگرهای قدیمی */
-            .bg-earth-green { background-color: #10b981 !important; }
-            .text-earth-green { color: #10b981 !important; }
-            .bg-ocean-blue { background-color: #3b82f6 !important; }
-            .text-ocean-blue { color: #3b82f6 !important; }
-            .bg-digital-gold { background-color: #f59e0b !important; }
-            .text-digital-gold { color: #f59e0b !important; }
-            .bg-pure-white { background-color: #ffffff !important; }
-            .text-pure-white { color: #ffffff !important; }
-            .bg-light-gray { background-color: #f8fafc !important; }
-            .text-light-gray { color: #f8fafc !important; }
-            .bg-gentle-black { background-color: #1e293b !important; }
-            .text-gentle-black { color: #1e293b !important; }
-        }
-
         /* Custom Tailwind Configuration - پیکربندی رنگ‌ها و فونت‌ها */
         :root {
             --color-earth-green: #10b981;
@@ -648,14 +596,12 @@
         }
 
         /* فوری: تنظیم اندازه پایه برای Edge */
-        .edge-browser body,
-        .tailwind-fallback body {
+        .edge-browser body {
             font-size: 16px !important;
             line-height: 1.5 !important;
         }
 
-        .edge-browser .container,
-        .tailwind-fallback .container {
+        .edge-browser .container {
             max-width: 1280px !important;
             margin-left: auto !important;
             margin-right: auto !important;
@@ -664,35 +610,30 @@
         }
 
         /* تنظیم اندازه فونت‌ها برای Edge */
-        .edge-browser h1,
-        .tailwind-fallback h1 {
+        .edge-browser h1 {
             font-size: 2.25rem !important;
             line-height: 1.2 !important;
         }
 
         @media (min-width: 768px) {
-            .edge-browser h1,
-            .tailwind-fallback h1 {
+            .edge-browser h1 {
                 font-size: 3.75rem !important;
             }
         }
 
         @media (min-width: 1024px) {
-            .edge-browser h1,
-            .tailwind-fallback h1 {
+            .edge-browser h1 {
                 font-size: 4.5rem !important;
             }
         }
 
-        .edge-browser p,
-        .tailwind-fallback p {
+        .edge-browser p {
             font-size: 1rem !important;
             line-height: 1.5 !important;
         }
 
         /* جلوگیری از بزرگنمایی در Edge */
-        .edge-browser img,
-        .tailwind-fallback img {
+        .edge-browser img {
             max-width: 100% !important;
             height: auto !important;
         }
@@ -1178,7 +1119,7 @@
                     
                     document.body.removeChild(testElement);
                     
-                    if (!tailwindWorks || document.documentElement.classList.contains('tailwind-fallback')) {
+                    if (!tailwindWorks) {
                         // اعمال فوری استایل‌های fallback
                         var style = document.createElement('style');
                         style.id = 'edge-emergency-styles';
@@ -1191,10 +1132,6 @@
                             img { max-width: 100% !important; height: auto !important; }
                         `;
                         document.head.appendChild(style);
-                        // فقط در development لاگ کن
-                        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                            console.log('Edge: Emergency styles applied');
-                        }
                     }
                 }, 500);
             }

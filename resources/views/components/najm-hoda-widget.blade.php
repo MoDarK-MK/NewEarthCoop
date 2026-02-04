@@ -416,11 +416,7 @@
                 const response = await fetch('/api/najm-hoda/welcome');
                 const data = await response.json();
                 
-                if (data.stats) {
-                    console.log('نجم‌هدا آماده است:', data.stats);
-                }
             } catch (error) {
-                console.error('خطا در بارگذاری نجم‌هدا:', error);
             }
         },
         
@@ -473,7 +469,6 @@
             } catch (error) {
                 this.hideTyping();
                 this.addMessage('متأسفانه مشکلی پیش آمد. لطفاً دوباره تلاش کنید.', 'assistant', '❌');
-                console.error('خطا در ارسال پیام:', error);
             }
         },
         

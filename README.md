@@ -1,4 +1,4 @@
-# 🌍 NewEarthCoop 
+# 🌍 NewEarthCoop
 
 [![Laravel](https://img.shields.io/badge/Laravel-9.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.1+-777BB4?style=for-the-badge&logo=php)](https://php.net)
@@ -13,20 +13,25 @@
 ## ✨ Key Innovations
 
 ### 🤖 Najm Hoda: Your AI Mission Control
+
 Our flagship **AI Assistant** is more than just a chatbot. It's a suite of specialized agents:
+
 - **🔧 Engineer:** Technical support and system architecture.
 - **✈️ Pilot:** Project management and operational guidance.
 - **👨‍✈️ Steward:** User onboarding and general support.
 - **📖 Guide:** Strategic planning and cooperative education.
-*Integrated with OpenAI and a custom Knowledge Base (RAG).*
+  _Integrated with OpenAI and a custom Knowledge Base (RAG)._
 
 ### 🎨 Unified Modern UI
+
 A refined, seamless user experience built with:
+
 - **Tailwind CSS & Alpine.js:** For ultra-fast, reactive, and mobile-first interfaces.
 - **Smart Stacking Contexts:** Persistent floating components that stay visible across navigation.
 - **Bi-directional Support:** Full RTL (Persian/Arabic) and LTR (English) localization.
 
 ### 👥 Intelligent Grouping System
+
 - **Geo-Filtering:** Automatic organization from neighborhood (Local) to planetary (Global) levels.
 - **Skill-Based Matching:** Connects users based on profession, expertise, and shared goals.
 
@@ -34,19 +39,20 @@ A refined, seamless user experience built with:
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology |
-| :--- | :--- |
-| **Backend** | Laravel 9.x, PHP 8.1+, MySQL 8.0 |
-| **Frontend** | Tailwind CSS 3, Alpine.js, Blade Components |
-| **AI Layer** | OpenAI API, Custom RAG, NajmHoda Service |
-| **Real-time** | Pusher, Laravel Echo |
-| **Auth** | Laravel Sanctum, Multi-step Registration |
+| Layer         | Technology                                  |
+| :------------ | :------------------------------------------ |
+| **Backend**   | Laravel 9.x, PHP 8.1+, MySQL 8.0            |
+| **Frontend**  | Tailwind CSS 3, Alpine.js, Blade Components |
+| **AI Layer**  | OpenAI API, Custom RAG, NajmHoda Service    |
+| **Real-time** | Pusher, Laravel Echo                        |
+| **Auth**      | Laravel Sanctum, Multi-step Registration    |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - **PHP** 8.1 or higher
 - **Composer** 2.x
 - **Node.js** 16.x & **NPM**
@@ -55,18 +61,21 @@ A refined, seamless user experience built with:
 ### Installation
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/MoDarK-MK/NewEarthCoop.git
    cd NewEarthCoop
    ```
 
 2. **Install dependencies:**
+
    ```bash
    composer install
    npm install
    ```
 
 3. **Environment Setup:**
+
    ```bash
    cp .env.example .env
    php artisan key:generate
@@ -74,12 +83,14 @@ A refined, seamless user experience built with:
 
 4. **Database Configuration:**
    Set your `DB_*` credentials in `.env`, then run:
+
    ```bash
    php artisan migrate --seed
    ```
 
 5. **AI Activation:**
    Add your OpenAI key to enable Najm Hoda:
+
    ```env
    OPENAI_API_KEY=sk-xxxx...
    NAJM_HODA_ENABLED=true
@@ -106,6 +117,7 @@ NewEarthCoop/
 ---
 
 ## 🔒 Security & Roles
+
 - **RBAC:** Advanced Role-Based Access Control (Admin, Moderator, Leader, User).
 - **Sanctum:** Secure API token management.
 - **CSRF & XSS Protection:** Native Laravel security hardening.
@@ -113,7 +125,9 @@ NewEarthCoop/
 ---
 
 ## 🤝 Contributing
+
 We welcome developers, visionaries, and cooperation experts!
+
 1. Fork the Project.
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
@@ -123,6 +137,7 @@ We welcome developers, visionaries, and cooperation experts!
 ---
 
 ## 📄 License
+
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---

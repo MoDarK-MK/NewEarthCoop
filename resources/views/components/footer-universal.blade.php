@@ -61,13 +61,13 @@
                     {{ __('footer.about_text') ?? 'پلتفرم تعاونی جهانی برای ساخت آینده‌ای پایدار و عادلانه' }}
                 </p>
                 <div class="flex gap-3">
-                    <a href="#" class="footer-social-icon">
+                    <a href="https://t.me/earthcoop" target="_blank" class="footer-social-icon">
                         <i class="fab fa-telegram"></i>
                     </a>
-                    <a href="#" class="footer-social-icon">
+                    <a href="https://instagram.com/earthcoop" target="_blank" class="footer-social-icon">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="footer-social-icon">
+                    <a href="https://twitter.com/earthcoop" target="_blank" class="footer-social-icon">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="#" class="footer-social-icon">
